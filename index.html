@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Easter Island Organics — Products</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  @font-face{
+    font-family:'Transcity';
+    src:url('Transcity.otf') format('opentype');
+    font-weight:normal;font-style:normal;font-display:swap;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+  :root{
+    --sand:#f5e6d0;
+    --sand-light:#faf3e8;
+    --warm:#e8c9a0;
+    --brown:#5c3d2e;
+    --brown-dark:#3a2518;
+    --orange:#d4853a;
+    --teal:#2a7a6e;
+    --teal-dark:#1e5c53;
+    --malibu:#6b4c8a;
+    --venice:#c25a3a;
+    --pineapple:#b8860b;
+    --mango:#3a8a5c;
+    --radius:16px;
+    --radius-sm:10px;
+    --shadow:0 4px 24px rgba(60,30,10,.12);
+    --shadow-hover:0 8px 40px rgba(60,30,10,.22);
+  }
+
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{
+    font-family:'Inter',system-ui,-apple-system,sans-serif;
+    background:var(--sand-light);
+    color:var(--brown-dark);
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+
+  /* ═══════════════════════════════
+     HERO — Image Background
+     ═══════════════════════════════ */
+  .hero{
+    position:relative;
+    overflow:hidden;
+    text-align:center;
+  }
+
+  .hero-img-wrap{
+    width:100%;
+    position:relative;
+  }
+  .hero-img-wrap img,
+  .hero-img-wrap video{
+    width:100vw;
+    height:auto;
+    display:block;
+    object-fit:cover;
+    margin-left:calc(-50vw + 50%);
+  }
+  .hero-img-wrap::after{
+    content:'';position:absolute;bottom:0;left:0;right:0;height:45%;
+    background:linear-gradient(180deg,transparent 0%,var(--sand-light) 100%);
+    pointer-events:none;
+  }
+
+  /* "Find your Balance" CTA at top of image */
+  .hero-cta{
+    position:absolute;top:40%;left:50%;transform:translate(-50%,-50%);
+    z-index:10;
+    text-align:center;
+    text-decoration:none;
+    color:#fff;
+    transition:opacity .3s;
+    display:none;
+  }
+  .hero-cta:hover{opacity:.8}
+  .hero-cta-text{
+    font-family:'Transcity','Playfair Display',serif;
+    font-size:2.2rem;font-weight:400;font-style:normal;
+    letter-spacing:2px;
+    text-shadow:0 2px 16px rgba(0,0,0,.85),0 1px 5px rgba(0,0,0,.7),0 0 30px rgba(0,0,0,.4);
+    display:block;
+  }
+  .hero-cta-arrow{
+    display:block;margin:8px auto 0;
+    filter:drop-shadow(0 2px 10px rgba(0,0,0,.8)) drop-shadow(0 0 20px rgba(0,0,0,.4));
+    animation:bobArrow 2s ease-in-out infinite;
+  }
+  @keyframes bobArrow{
+    0%,100%{transform:translateY(0)}
+    50%{transform:translateY(10px)}
+  }
+
+  .hero-overlay{
+    position:relative;
+    margin-top:-8rem;
+    z-index:10;
+    text-align:center;
+    padding:0 1.5rem 1rem;
+  }
+
+  .hero-logo{margin-bottom:.25rem;filter:drop-shadow(0 2px 8px rgba(0,0,0,.2))}
+  .hero-logo img{height:60px;width:auto;display:block;margin:0 auto}
+  .hero h1{
+    font-family:'Transcity','Playfair Display',serif;
+    font-size:clamp(2.2rem,6.6vw,3.52rem);
+    color:var(--brown-dark);
+    text-shadow:none;
+    letter-spacing:2px;line-height:1.15;
+  }
+  .hero h1 .sub{
+    display:block;font-size:.45em;font-family:'Inter',sans-serif;font-weight:700;
+    letter-spacing:4px;text-transform:uppercase;opacity:.7;margin-top:.35rem;
+  }
+
+  .hero-tagline{
+    color:var(--brown);
+    font-family:'Playfair Display',serif;
+    font-size:1.05rem;font-weight:700;font-style:italic;
+    letter-spacing:.3px;
+    line-height:1.5;
+    max-width:440px;margin:0 auto;
+    padding-top:10px;
+  }
+
+  /* ═══════════════
+     SECTIONS
+     ═══════════════ */
+  .product-section{
+    padding:1rem 1.25rem 1rem;
+    max-width:1280px;margin:0 auto;
+  }
+
+  /* Scenic divider */
+  .scenic-divider{
+    position:relative;height:180px;overflow:hidden;
+    background:linear-gradient(180deg,var(--sand-light) 0%,#c9a87c 30%,#8b7355 50%,#6b5b4f 70%,var(--sand-light) 100%);
+    margin:1rem 0 0;
+  }
+  .scenic-divider::before{
+    content:'';position:absolute;inset:0;
+    background:
+      radial-gradient(ellipse 30% 60% at 25% 50%,#5c4a3a 0%,transparent 100%),
+      radial-gradient(ellipse 20% 80% at 60% 45%,#6b5b4f 0%,transparent 100%),
+      radial-gradient(ellipse 25% 55% at 80% 55%,#5c4a3a 0%,transparent 100%);
+    opacity:.5;
+  }
+  .scenic-divider::after{
+    content:'';position:absolute;bottom:0;left:0;right:0;height:40px;
+    background:var(--sand-light);clip-path:ellipse(60% 100% at 50% 100%);
+  }
+  .divider-moai{position:absolute;z-index:2;bottom:35px;left:50%;transform:translateX(-50%);display:flex;gap:20px;align-items:flex-end}
+  .divider-moai .dstone{background:linear-gradient(180deg,#7a6b5f,#4a3c32);border-radius:10px 10px 3px 3px;position:relative}
+  .divider-moai .dstone.d1{width:35px;height:70px}
+  .divider-moai .dstone.d2{width:45px;height:100px}
+  .divider-moai .dstone.d3{width:38px;height:75px}
+  .divider-moai .dstone::before{content:'';position:absolute;top:15px;left:50%;transform:translateX(-50%);width:55%;height:10px;border-radius:3px;background:rgba(0,0,0,.18)}
+  .divider-moai .dstone::after{content:'';position:absolute;top:30px;left:50%;transform:translateX(-50%);width:35%;height:4px;border-radius:2px;background:rgba(0,0,0,.12)}
+
+  /* ═══════════════
+     PRODUCT GRID
+     ═══════════════ */
+  .products{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:1.5rem;
+    padding-bottom:1.5rem;
+  }
+
+  /* ═══════════════
+     PRODUCT CARDS
+     ═══════════════ */
+  .card{
+    background:#fff;
+    border-radius:var(--radius);
+    overflow:hidden;
+    box-shadow:var(--shadow);
+    transition:transform .35s cubic-bezier(.4,0,.2,1),box-shadow .35s ease;
+    display:flex;flex-direction:column;
+    position:relative;
+  }
+  .card:hover{transform:translateY(-5px);box-shadow:var(--shadow-hover)}
+
+  .card-category{
+    position:absolute;top:.75rem;right:.75rem;z-index:5;
+    font-family:'Playfair Display',serif;
+    font-size:.6rem;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;
+    color:#fff;padding:.3rem .8rem;border-radius:50px;
+    box-shadow:0 2px 8px rgba(0,0,0,.15);
+  }
+  .card.pineapple .card-category,
+  .card.mango .card-category{background:linear-gradient(135deg,var(--orange),#c47530)}
+  .card.venice .card-category,
+  .card.malibu .card-category{background:linear-gradient(135deg,var(--teal),var(--teal-dark))}
+
+  .card-header{
+    padding:2.25rem 1.25rem 1rem;
+    text-align:center;position:relative;overflow:hidden;
+  }
+  .card-header::before{
+    content:'';position:absolute;top:0;left:0;right:0;bottom:0;opacity:.1;
+  }
+  .card.pineapple .card-header::before{background:linear-gradient(135deg,#f0c040,#d4a020)}
+  .card.mango .card-header::before{background:linear-gradient(135deg,#40c080,#20a060)}
+  .card.venice .card-header::before{background:linear-gradient(135deg,#c25a3a,#a04020)}
+  .card.malibu .card-header::before{background:linear-gradient(135deg,#6b4c8a,#504080)}
+
+  .card-img{
+    width:120px;height:120px;
+    object-fit:contain;
+    position:relative;z-index:1;display:block;margin:0 auto .35rem;
+    border-radius:12px;
+    transition:transform .4s cubic-bezier(.4,0,.2,1);
+  }
+  .card:hover .card-img{transform:scale(1.08) rotate(-2deg)}
+
+  .card-name{
+    font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:900;
+    position:relative;z-index:1;
+  }
+  .card.pineapple .card-name{color:var(--pineapple)}
+  .card.mango .card-name{color:var(--mango)}
+  .card.venice .card-name{color:var(--venice)}
+  .card.malibu .card-name{color:var(--malibu)}
+
+  .card-subtitle{
+    font-size:.65rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;
+    opacity:.5;margin-top:.1rem;position:relative;z-index:1;
+  }
+
+  .card-body{padding:.75rem 1.25rem 1.25rem;flex:1;display:flex;flex-direction:column}
+  .card-desc{
+    font-size:.85rem;color:#5c4a3a;line-height:1.65;
+    text-align:center;margin-bottom:1rem;
+    padding-top:.5rem;
+  }
+
+  .specs{
+    display:flex;justify-content:center;gap:.4rem;flex-wrap:wrap;margin-bottom:1rem;
+  }
+  .spec{
+    background:var(--sand-light);
+    border:1px solid var(--warm);
+    border-radius:50px;
+    padding:.25rem .75rem;
+    font-size:.7rem;font-weight:600;color:var(--brown);
+    white-space:nowrap;
+    transition:background .25s;
+  }
+  .card:hover .spec{background:var(--sand)}
+
+  .ingredients{margin-bottom:1.25rem}
+  .ingredients-title{
+    font-size:.7rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
+    text-align:center;margin-bottom:.5rem;
+    opacity:.5;
+  }
+  .ingredients-list{
+    display:flex;flex-wrap:wrap;justify-content:center;gap:.3rem;
+  }
+  .ingredient-tag{
+    display:inline-block;
+    background:transparent;
+    border:1.5px dashed;
+    border-radius:50px;
+    padding:.2rem .65rem;
+    font-size:.68rem;font-weight:500;
+    transition:background .25s,transform .25s;
+  }
+  .card:hover .ingredient-tag{transform:scale(1.03)}
+
+  .card.pineapple .ingredient-tag{border-color:#d4a33a;color:#a07820}
+  .card.mango .ingredient-tag{border-color:#4aaa6c;color:#2a7a4c}
+  .card.venice .ingredient-tag{border-color:#d46a4a;color:#a04030}
+  .card.malibu .ingredient-tag{border-color:#8a6aaa;color:#5c4080}
+
+  .cta-wrap{margin-top:auto}
+  .cta{display:block;text-align:center;text-decoration:none;width:100%}
+  .cta-btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
+    width:100%;padding:.8rem 1.25rem;
+    border:none;border-radius:var(--radius-sm);cursor:pointer;
+    font-family:'Inter',sans-serif;font-size:.9rem;font-weight:700;
+    color:#fff;letter-spacing:.5px;
+    transition:all .3s cubic-bezier(.4,0,.2,1);
+    position:relative;overflow:hidden;
+    text-decoration:none;
+  }
+  .cta-btn::after{
+    content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;
+    background:linear-gradient(90deg,transparent,rgba(255,255,255,.18),transparent);
+    transition:left .5s;
+  }
+  .cta-btn:hover::after{left:100%}
+  .cta-btn:hover{transform:scale(1.02);filter:brightness(1.1)}
+  .cta-btn:active{transform:scale(.97)}
+
+  .card.pineapple .cta-btn{background:linear-gradient(135deg,var(--orange),#c47530)}
+  .card.mango .cta-btn{background:linear-gradient(135deg,var(--mango),#2a7050)}
+  .card.venice .cta-btn{background:linear-gradient(135deg,var(--venice),#a04020)}
+  .card.malibu .cta-btn{background:linear-gradient(135deg,var(--malibu),#504080)}
+
+  .cart-icon{vertical-align:middle;flex-shrink:0}
+
+  .footer{
+    position:relative;
+    text-align:center;
+    padding:6rem 1.5rem 2rem;
+    color:#fff;
+    font-size:.75rem;
+    overflow:hidden;
+  }
+  .footer-bg{
+    position:absolute;inset:0;z-index:0;
+    background:url('footer.png') center top / cover no-repeat;
+  }
+  .footer-bg::after{
+    content:'';position:absolute;inset:0;
+    background:linear-gradient(180deg,
+      var(--sand-light) 0%,
+      rgba(0,0,0,.05) 25%,
+      rgba(0,0,0,.35) 70%,
+      rgba(0,0,0,.55) 100%
+    );
+  }
+  .footer-content{position:relative;z-index:2}
+  .footer-moai{font-size:1.5rem;display:block;margin-bottom:.3rem;opacity:.9}
+
+  /* ═══════════════
+     RESPONSIVE
+     ═══════════════ */
+  @media(min-width:580px){
+    .products{grid-template-columns:1fr 1fr;gap:1.5rem}
+    .hero-overlay{margin-top:-10rem}
+    .product-section{padding:1.25rem 2rem 1rem}
+  }
+
+  @media(min-width:1024px){
+    .products{grid-template-columns:repeat(2,1fr);gap:1.75rem;max-width:900px;margin-inline:auto}
+    .hero-overlay{margin-top:-12rem}
+    .hero-cta{display:block;font-size:1.75rem}
+    .hero h1{font-size:3.2rem}
+    .hero-sun{width:100px;height:100px;top:14px}
+    .card-header{padding:2.25rem 1.5rem 1.25rem}
+    .card-body{padding:.75rem 1.5rem 1.5rem}
+    .product-section{padding:1.5rem 2.5rem 1.5rem}
+
+    .all-products{
+      display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;
+      max-width:1200px;margin:0 auto;padding:0 1.5rem 2rem;
+    }
+    .all-products .card-desc{font-size:.8rem}
+    .all-products .card-name{font-size:1.2rem}
+    .all-products .card-img{width:100px;height:100px}
+  }
+
+  @media(min-width:1280px){
+    .all-products{max-width:1320px;gap:1.75rem}
+  }
+
+  @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+  .card{animation:fadeUp .6s ease both}
+  .card:nth-child(1){animation-delay:.1s}
+  .card:nth-child(2){animation-delay:.2s}
+  .card:nth-child(3){animation-delay:.3s}
+  .card:nth-child(4){animation-delay:.4s}
+
+  /* Sound toggle */
+  .sound-toggle{
+    position:fixed;bottom:1.25rem;right:1.25rem;z-index:100;
+    width:44px;height:44px;border-radius:50%;border:none;cursor:pointer;
+    background:rgba(255,255,255,.85);
+    backdrop-filter:blur(8px);
+    box-shadow:0 2px 12px rgba(0,0,0,.15);
+    display:flex;align-items:center;justify-content:center;
+    transition:transform .2s,background .2s;
+    color:var(--brown);
+  }
+  .sound-toggle:hover{transform:scale(1.1);background:#fff}
+  .sound-toggle svg{width:20px;height:20px}
+  .sound-toggle .icon-on,.sound-toggle.muted .icon-off{display:block}
+  .sound-toggle .icon-off,.sound-toggle.muted .icon-on{display:none}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-img-wrap">
+    <video id="hero-video" autoplay muted playsinline loop poster="hero ei image wide.png">
+      <source src="hero-cinemagraph.mp4" type="video/mp4">
+    </video>
+    <a href="#products" class="hero-cta">
+      <span class="hero-cta-text">Find your Balance</span>
+      <svg class="hero-cta-arrow" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#c17752" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+    </a>
+  </div>
+  <div class="hero-overlay" id="products">
+    <div class="hero-logo"><img src="logo.png" alt="Easter Island Organics"></div>
+    <h1>Easter Island Organics<span class="sub">Products</span></h1>
+    <p class="hero-tagline">Premium organic blends crafted for energy, clarity, and balanced well-being.</p>
+  </div>
+</header>
+
+<section class="product-section gummies-section" id="gummies">
+  <div class="products" id="gummies-grid">
+
+    <article class="card pineapple">
+      <span class="card-category">Gummies</span>
+      <div class="card-header">
+        <img src="Moai.png" alt="Moai Blend — Pineapple Gummies" class="card-img">
+        <h2 class="card-name">Moai Blend</h2>
+        <p class="card-subtitle">Pineapple</p>
+      </div>
+      <div class="card-body">
+        <p class="card-desc">A golden island escape in every bite. Bursting with ripe pineapple and powered by 450mg of our signature blend to spark clarity, lift your mood, and bring a smooth sunny flow to your day.</p>
+        <div class="specs">
+          <span class="spec">12 Gummies</span>
+          <span class="spec">450mg Each</span>
+          <span class="spec">5.4g Total</span>
+        </div>
+        <div class="ingredients">
+          <p class="ingredients-title">Ingredients</p>
+          <div class="ingredients-list">
+            <span class="ingredient-tag">450mg Signature Blend</span>
+          </div>
+        </div>
+        <div class="cta-wrap">
+          <a href="https://www.easterislandorganics.com/?af=Y10XC" target="_blank" rel="noopener" class="cta">
+            <span class="cta-btn"><svg class="cart-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg> Buy Now</span>
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <article class="card mango">
+      <span class="card-category">Gummies</span>
+      <div class="card-header">
+        <img src="Hula.png" alt="Hula Blend — Mango Gummies" class="card-img">
+        <h2 class="card-name">Hula Blend</h2>
+        <p class="card-subtitle">Mango</p>
+      </div>
+      <div class="card-body">
+        <p class="card-desc">A tropical treat inspired by sunny days, sensational vibes, and feeling good for no season. Made with juicy mango and 250mg of our signature blend to bring lightness, and just the right amount of happiness.</p>
+        <div class="specs">
+          <span class="spec">16 Gummies</span>
+          <span class="spec">250mg Each</span>
+          <span class="spec">4g Total</span>
+        </div>
+        <div class="ingredients">
+          <p class="ingredients-title">Ingredients</p>
+          <div class="ingredients-list">
+            <span class="ingredient-tag">250mg Signature Blend</span>
+          </div>
+        </div>
+        <div class="cta-wrap">
+          <a href="https://www.easterislandorganics.com/?af=Y10XC" target="_blank" rel="noopener" class="cta">
+            <span class="cta-btn"><svg class="cart-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg> Buy Now</span>
+          </a>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<div class="scenic-divider">
+  <div class="divider-moai">
+    <div class="dstone d1"></div>
+    <div class="dstone d2"></div>
+    <div class="dstone d3"></div>
+  </div>
+</div>
+
+<section class="product-section capsules-section" id="capsules">
+  <div class="products" id="capsules-grid">
+
+    <article class="card venice">
+      <span class="card-category">Capsules</span>
+      <div class="card-header">
+        <img src="Venice.png" alt="Venice Blend — Energy & Passion Capsules" class="card-img">
+        <h2 class="card-name">Venice Blend</h2>
+        <p class="card-subtitle">Energy &amp; Passion</p>
+      </div>
+      <div class="card-body">
+        <p class="card-desc">These capsules support physical endurance, libido, mental clarity, and stress relief, promoting a sense of energy, motivation, and confidence to perform at your best throughout the day / night.</p>
+        <div class="specs">
+          <span class="spec">20 Capsules</span>
+          <span class="spec">4.5g Total</span>
+        </div>
+        <div class="ingredients">
+          <p class="ingredients-title">Ingredients</p>
+          <div class="ingredients-list">
+            <span class="ingredient-tag">200mg Signature Blend</span>
+            <span class="ingredient-tag">150mg Cordyceps</span>
+            <span class="ingredient-tag">100mg Maca</span>
+            <span class="ingredient-tag">50mg Rhodiola</span>
+          </div>
+        </div>
+        <div class="cta-wrap">
+          <a href="https://www.easterislandorganics.com/?af=Y10XC" target="_blank" rel="noopener" class="cta">
+            <span class="cta-btn"><svg class="cart-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg> Buy Now</span>
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <article class="card malibu">
+      <span class="card-category">Capsules</span>
+      <div class="card-header">
+        <img src="Malibu.png" alt="Malibu Blend — Balanced Presence Capsules" class="card-img">
+        <h2 class="card-name">Malibu Blend</h2>
+        <p class="card-subtitle">Balanced Presence</p>
+      </div>
+      <div class="card-body">
+        <p class="card-desc">Achieve calm, focused energy with the Malibu Blend. Our harmonious formula supports mental clarity, relaxation, and a balanced sense of well-being — helping you maintain a peaceful, centered mental state.</p>
+        <div class="specs">
+          <span class="spec">20 Capsules</span>
+          <span class="spec">5g Total</span>
+        </div>
+        <div class="ingredients">
+          <p class="ingredients-title">Ingredients</p>
+          <div class="ingredients-list">
+            <span class="ingredient-tag">250mg Signature Blend</span>
+            <span class="ingredient-tag">100mg Lemon Balm</span>
+            <span class="ingredient-tag">90mg Lion's Mane</span>
+            <span class="ingredient-tag">60mg Red Reishi</span>
+          </div>
+        </div>
+        <div class="cta-wrap">
+          <a href="https://www.easterislandorganics.com/?af=Y10XC" target="_blank" rel="noopener" class="cta">
+            <span class="cta-btn"><svg class="cart-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg> Buy Now</span>
+          </a>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-bg"></div>
+  <div class="footer-content">
+    <span class="footer-moai"><img src="logo.png" alt="Easter Island Organics" style="height:40px;width:auto;filter:brightness(10)"></span>
+    Easter Island Organics &copy; 2026
+  </div>
+</footer>
+
+<!-- Sound toggle button (must be before script) -->
+<button id="sound-toggle" class="sound-toggle muted" aria-label="Toggle ambient sound">
+  <svg class="icon-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+    <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+    <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+  </svg>
+  <svg class="icon-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+    <line x1="23" y1="9" x2="17" y2="15"/>
+    <line x1="17" y1="9" x2="23" y2="15"/>
+  </svg>
+</button>
+
+<script>
+  // ═══════════════════════════════
+  // Desktop layout handler
+  // ═══════════════════════════════
+  function handleLayout() {
+    const isDesktop = window.matchMedia('(min-width: 1024px)').matches;
+    const gummiesGrid = document.getElementById('gummies-grid');
+    const capsulesGrid = document.getElementById('capsules-grid');
+    const allContainer = document.getElementById('all-products-row');
+
+    if (isDesktop) {
+      if (!allContainer) {
+        const container = document.createElement('div');
+        container.id = 'all-products-row';
+        container.className = 'all-products';
+
+        const gummyCards = [...gummiesGrid.querySelectorAll('.card')];
+        const capsuleCards = [...capsulesGrid.querySelectorAll('.card')];
+
+        gummyCards.forEach(c => container.appendChild(c));
+        capsuleCards.forEach(c => container.appendChild(c));
+
+        const gummiesSection = document.querySelector('.gummies-section');
+        gummiesSection.appendChild(container);
+
+        gummiesGrid.style.display = 'none';
+        document.querySelector('.capsules-section').style.display = 'none';
+        document.querySelector('.scenic-divider').style.display = 'none';
+      }
+    } else {
+      if (allContainer) {
+        const cards = [...allContainer.querySelectorAll('.card')];
+        const gummyCards = cards.filter(c => c.classList.contains('pineapple') || c.classList.contains('mango'));
+        const capsuleCards = cards.filter(c => c.classList.contains('venice') || c.classList.contains('malibu'));
+
+        gummyCards.forEach(c => gummiesGrid.appendChild(c));
+        capsuleCards.forEach(c => capsulesGrid.appendChild(c));
+
+        allContainer.remove();
+        gummiesGrid.style.display = '';
+        document.querySelector('.capsules-section').style.display = '';
+        document.querySelector('.scenic-divider').style.display = '';
+      }
+    }
+  }
+
+  handleLayout();
+  window.addEventListener('resize', handleLayout);
+
+  // ═══════════════════════════════
+  // Ambient Ocean Sound (Web Audio API)
+  // ═══════════════════════════════
+  (function() {
+    let ctx, masterGain, started = false, muted = true;
+    const btn = document.getElementById('sound-toggle');
+    if (!btn) return;
+
+    function createNoise(audioCtx, duration) {
+      const sr = audioCtx.sampleRate;
+      const len = sr * duration;
+      const buf = audioCtx.createBuffer(2, len, sr);
+      for (let ch = 0; ch < 2; ch++) {
+        const data = buf.getChannelData(ch);
+        for (let i = 0; i < len; i++) data[i] = Math.random() * 2 - 1;
+      }
+      return buf;
+    }
+
+    function startAmbient() {
+      ctx = new (window.AudioContext || window.webkitAudioContext)();
+      masterGain = ctx.createGain();
+      masterGain.gain.value = 0;
+      masterGain.connect(ctx.destination);
+
+      const noiseBuf = createNoise(ctx, 4);
+
+      // Ocean waves
+      const noise = ctx.createBufferSource();
+      noise.buffer = noiseBuf;
+      noise.loop = true;
+      const lp = ctx.createBiquadFilter();
+      lp.type = 'lowpass';
+      lp.frequency.value = 400;
+      const waveGain = ctx.createGain();
+      waveGain.gain.value = 0.35;
+      const lfo = ctx.createOscillator();
+      lfo.type = 'sine';
+      lfo.frequency.value = 0.12;
+      const lfoGain = ctx.createGain();
+      lfoGain.gain.value = 200;
+      lfo.connect(lfoGain);
+      lfoGain.connect(lp.frequency);
+      lfo.start();
+      noise.connect(lp);
+      lp.connect(waveGain);
+      waveGain.connect(masterGain);
+      noise.start();
+
+      // Deep undertow
+      const noise2 = ctx.createBufferSource();
+      noise2.buffer = noiseBuf;
+      noise2.loop = true;
+      const lp2 = ctx.createBiquadFilter();
+      lp2.type = 'lowpass';
+      lp2.frequency.value = 180;
+      const deep = ctx.createGain();
+      deep.gain.value = 0.2;
+      noise2.connect(lp2);
+      lp2.connect(deep);
+      deep.connect(masterGain);
+      noise2.start();
+
+      // Foam shimmer
+      const noise3 = ctx.createBufferSource();
+      noise3.buffer = noiseBuf;
+      noise3.loop = true;
+      const hp = ctx.createBiquadFilter();
+      hp.type = 'highpass';
+      hp.frequency.value = 3000;
+      const shimmer = ctx.createGain();
+      shimmer.gain.value = 0.04;
+      const lfo2 = ctx.createOscillator();
+      lfo2.frequency.value = 0.08;
+      const lfoG2 = ctx.createGain();
+      lfoG2.gain.value = 0.03;
+      lfo2.connect(lfoG2);
+      lfoG2.connect(shimmer.gain);
+      lfo2.start();
+      noise3.connect(hp);
+      hp.connect(shimmer);
+      shimmer.connect(masterGain);
+      noise3.start();
+
+      // Bird chirps
+      function chirp() {
+        if (!ctx || ctx.state === 'closed') return;
+        const osc = ctx.createOscillator();
+        const g = ctx.createGain();
+        osc.type = 'sine';
+        osc.frequency.value = 2800 + Math.random() * 2000;
+        g.gain.setValueAtTime(0, ctx.currentTime);
+        g.gain.linearRampToValueAtTime(0.07, ctx.currentTime + 0.05);
+        g.gain.linearRampToValueAtTime(0, ctx.currentTime + 0.15);
+        osc.connect(g);
+        g.connect(masterGain);
+        osc.start(ctx.currentTime);
+        osc.stop(ctx.currentTime + 0.25);
+
+        if (Math.random() > 0.5) {
+          const osc2 = ctx.createOscillator();
+          const g2 = ctx.createGain();
+          osc2.type = 'sine';
+          osc2.frequency.value = osc.frequency.value * (1 + Math.random() * 0.15);
+          g2.gain.setValueAtTime(0, ctx.currentTime + 0.15);
+          g2.gain.linearRampToValueAtTime(0.05, ctx.currentTime + 0.2);
+          g2.gain.linearRampToValueAtTime(0, ctx.currentTime + 0.32);
+          osc2.connect(g2);
+          g2.connect(masterGain);
+          osc2.start(ctx.currentTime + 0.15);
+          osc2.stop(ctx.currentTime + 0.4);
+        }
+        setTimeout(chirp, 3000 + Math.random() * 8000);
+      }
+      setTimeout(chirp, 2000);
+      started = true;
+    }
+
+    btn.addEventListener('click', function() {
+      if (!started) startAmbient();
+      if (ctx.state === 'suspended') ctx.resume();
+
+      muted = !muted;
+      btn.classList.toggle('muted', muted);
+
+      masterGain.gain.cancelScheduledValues(ctx.currentTime);
+      masterGain.gain.setValueAtTime(masterGain.gain.value, ctx.currentTime);
+      masterGain.gain.linearRampToValueAtTime(muted ? 0 : 1, ctx.currentTime + (muted ? 0.8 : 1.5));
+    });
+  })();
+</script>
+
+</body>
+</html>
